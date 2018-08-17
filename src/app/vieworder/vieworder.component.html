@@ -1,0 +1,17 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of this.orderService.orderProduct">
+      <td>  <img  [src]="p.image" alt="Card image" width="250px" height="100px"></td>
+      <td>{{p.quantity}}</td>
+      <td>${{p.price}}</td>
+    </tr>
+   
+  </tbody>
+</table>

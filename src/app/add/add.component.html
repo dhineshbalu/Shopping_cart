@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-lg-6">
+
+      <form #form="ngForm" (ngSubmit)="save(form.value)" >
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" #title="ngModel" ngModel name="title" id="title" class="form-control" required />
+            <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+              Title is required
+            </div>
+          </div>
+        
+        
+          <div class="form-group">
+            <label for="text">Price</label>
+            <input type="number"  ngModel name="price" #price="ngModel"  class="form-control" required>
+            <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+                price is required
+              </div>
+          </div>
+        
+          <div class="form-group">
+            <label for="text">Category</label>
+           <select ngModel name="category" class="form-control" #category="ngModel" required>
+         
+           <option  *ngFor="let c of catarray" [value]="c">
+             {{c}}
+           </option>
+           </select>
+           <div class="alert alert-danger" *ngIf="category.touched && category.invalid">
+              category is required
+            </div>
+          </div>
+        
+          <div class="form-group">
+            <label for="imageUrl">Image</label>
+            <input ngModel name="image" type="text" class="form-control" #image="ngModel" required>
+            <div class="alert alert-danger" *ngIf="image.touched && image.invalid">
+                image is required
+              </div>
+          </div>
+         
+           <button class="btn btn-danger" class="btn btn-success">Save</button>
+          
+        </form>  
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let l of this.myOrder.orderList">
+      <td>{{l.username}}</td>
+      <td>{{l.date}}</td>
+      <td><a [routerLink]="['/myorder/',l.keyvalue]">view</a></td>
+    </tr>
+   
+  </tbody>
+</table>

@@ -1,0 +1,57 @@
+<!-- <div class="row">
+  <div class="col-lg-3">
+
+    
+    <div *ngFor="let c of category">
+      <button  class="btn btn-primary"(click)="this.pservice.getSingleProduct(c.keyvalue)">{{c.name}}</button>
+    </div>
+  </div>
+  <div class="col-lg-9">
+
+  <div class="card" style="width:400px" *ngFor="let p of this.pservice.filteredProducts">
+    <img class="card-img-top" [src]="p.image" alt="Card image">
+    <div class="card-body">
+      <h4 class="card-title text-center">{{p.title}}</h4>
+      <p class="card-text text-center">{{p.category}}</p>
+      <h3 class="card-title text-center">{{p.price | currency:'USD':true}}</h3>
+    </div>
+  </div>
+
+  
+</div> -->
+
+<div class="row">
+  <div class="col-3">
+      <!-- <div *ngFor="let c of category">
+        </div>  -->
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let c of category">
+            <button  class="btn btn-primary"(click)="this.pservice.getSingleProduct(c.keyvalue)">{{c.name}}</button>
+             
+        </li>
+      </ul>
+  </div>
+  <div class="col">
+      <div class="row">
+          <ng-container *ngFor="let p of this.pservice.filteredProducts; let i = index">
+            <div class="col">
+              <div class="card" style="width:400px" >
+                <img class="card-img-top" [src]="p.image" alt="Card image">
+                <div class="card-body">
+                  <h4 class="card-title text-center">{{p.title}}</h4>
+                  <p class="card-text text-center">{{p.category}}</p>
+                  <h3 class="card-title text-center">{{p.price | currency:'USD':true}}</h3>
+                  <button  (click)="addToCart(p)" class="btn btn-lg btn-success">Add too  cart..........</button>
+                 <!-- <span>{{this.cartService.totalQuantity}}</span> -->
+                </div>
+              </div>
+            </div>
+        
+            <div *ngIf="(i+1)%2===0" class="w-100"></div>
+        
+          </ng-container>
+        
+        
+        </div>
+  </div>
+</div>
